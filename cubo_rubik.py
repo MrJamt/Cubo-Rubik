@@ -13,32 +13,33 @@ class CuboRubik:
         #     'R': [['R']*3 for _ in range(3)]
         # }
 
-        self.cubo2 = {
-            'U': np.array([['W', 'W', 'W'], ['W', 'W', 'W'], ['W', 'W', 'W']]),  # Upper (arriba)
-            'D': np.array([['Y', 'Y', 'Y'], ['Y', 'Y', 'Y'], ['Y', 'Y', 'Y']]),  # Down (abajo)
-            'F': np.array([['G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G', 'G']]),  # Front (frente)
-            'B': np.array([['B', 'B', 'B'], ['B', 'B', 'B'], ['B', 'B', 'B']]),  # Back (atrás)
-            'L': np.array([['O', 'O', 'O'], ['O', 'O', 'O'], ['O', 'O', 'O']]),  # Left (izquierda)
-            'R': np.array([['R', 'R', 'R'], ['R', 'R', 'R'], ['R', 'R', 'R']])   # Right (derecha)
-        }
-
-        # self.cubo2 = { #L
-        #     'U': np.array([['B', 'W', 'W'], ['B', 'W', 'W'], ['B', 'W', 'W']]),  # Upper (arriba)
-        #     'D': np.array([['G', 'Y', 'Y'], ['G', 'Y', 'Y'], ['G', 'Y', 'Y']]),  # Down (abajo)
-        #     'F': np.array([['W', 'G', 'G'], ['W', 'G', 'G'], ['W', 'G', 'G']]),  # Front (frente)
-        #     'B': np.array([['B', 'B', 'Y'], ['B', 'B', 'Y'], ['B', 'B', 'Y']]),  # Back (atrás)
+        # self.cubo2 = {
+        #     'U': np.array([['W', 'W', 'W'], ['W', 'W', 'W'], ['W', 'W', 'W']]),  # Upper (arriba)
+        #     'D': np.array([['Y', 'Y', 'Y'], ['Y', 'Y', 'Y'], ['Y', 'Y', 'Y']]),  # Down (abajo)
+        #     'F': np.array([['G', 'G', 'G'], ['G', 'G', 'G'], ['G', 'G', 'G']]),  # Front (frente)
+        #     'B': np.array([['B', 'B', 'B'], ['B', 'B', 'B'], ['B', 'B', 'B']]),  # Back (atrás)
         #     'L': np.array([['O', 'O', 'O'], ['O', 'O', 'O'], ['O', 'O', 'O']]),  # Left (izquierda)
-        #     'R': np.array([['R', 'R', 'R'], ['R', 'R', 'R'], ['R', 'R', 'R']])  # Right (derecha)
+        #     'R': np.array([['R', 'R', 'R'], ['R', 'R', 'R'], ['R', 'R', 'R']])   # Right (derecha)
         # }
 
         # self.cubo2 = {
-        #     'U': np.array([['B', 'W', 'W'], ['B', 'W', 'W'], ['B', 'W', 'W']]),  # Upper (arriba)
-        #     'D': np.array([['G', 'G', 'G'], ['Y', 'Y', 'Y'], ['Y', 'Y', 'Y']]),  # Down (abajo) #En el Down debe ir al reves???
-        #     'F': np.array([['W', 'G', 'G'], ['W', 'G', 'G'], ['O', 'O', 'O']]),  # Front (frente)
-        #     'B': np.array([['B', 'B', 'Y'], ['B', 'B', 'Y'], ['R', 'R', 'R']]),  # Back (atrás)
-        #     'L': np.array([['O', 'O', 'O'], ['O', 'O', 'O'], ['B', 'B', 'Y']]),  # Left (izquierda)
-        #     'R': np.array([['R', 'R', 'R'], ['R', 'R', 'R'], ['W', 'G', 'G']])  # Right (derecha)
+        #     'U': np.array([['O', 'G', 'W'], ['R', 'O', 'B'], ['Y', 'O', 'B']]),  # Upper (arriba)
+        #     'D': np.array([['W', 'O', 'B'], ['B', 'R', 'W'], ['W', 'Y', 'B']]),  # Down (abajo)
+        #     'F': np.array([['G', 'Y', 'R'], ['Y', 'W', 'O'], ['R', 'B', 'W']]),  # Front (frente)
+        #     'B': np.array([['G', 'W', 'Y'], ['R', 'Y', 'O'], ['Y', 'R', 'R']]),  # Back (atrás)
+        #     'L': np.array([['G', 'G', 'R'], ['G', 'G', 'G'], ['G', 'Y', 'B']]),  # Left (izquierda)
+        #     'R': np.array([['Y', 'R', 'O'], ['W', 'B', 'W'], ['O', 'B', 'O']])   # Right (derecha)
         # }
+
+        self.cubo2 = {
+            'U': np.array([['B', 'R', 'R'], ['B', 'W', 'W'], ['B', 'W', 'W']]),  # Upper (arriba)
+            'D': np.array([['Y', 'Y', 'O'], ['Y', 'Y', 'O'], ['G', 'G', 'G']]),  # Down (abajo)
+            'F': np.array([['R', 'G', 'G'], ['W', 'G', 'G'], ['R', 'R', 'Y']]),  # Front (frente)
+            'B': np.array([['B', 'B', 'O'], ['B', 'B', 'Y'], ['O', 'O', 'O']]),  # Back (atrás)
+            'L': np.array([['W', 'W', 'W'], ['O', 'O', 'O'], ['W', 'G', 'G']]),  # Left (izquierda)
+            'R': np.array([['R', 'R', 'Y'], ['R', 'R', 'Y'], ['B', 'B', 'Y']])   # Right (derecha)
+        }
+
 
     def leer(self, file_path):
         with open(file_path, 'r') as file:
@@ -70,7 +71,7 @@ class CuboRubik:
 
         return self.cubo2
 
-    def Fd_movimiento(self): #OK
+    def Fd_movimiento(self): #OK OK
         self.cubo2['F'] = np.rot90(self.cubo2['F'], -1)
         tempFd = copy.deepcopy(self.cubo2['U'][2])
         self.cubo2['U'][2] = self.cubo2['L'][:, 2][::-1]
@@ -80,7 +81,7 @@ class CuboRubik:
 
         return self.cubo2
 
-    def Fi_movimiento(self): #OK
+    def Fi_movimiento(self): #OK OK
         self.cubo2['F'] = np.rot90(self.cubo2['F'])
         tempFi = copy.deepcopy(self.cubo2['U'][2][::-1])
         self.cubo2['U'][2] = self.cubo2['R'][:, 0]
@@ -100,7 +101,7 @@ class CuboRubik:
 
         return self.cubo2
 
-    def Ri_movimiento(self): #OK
+    def Ri_movimiento(self): #OK OK
         self.cubo2['R'] = np.rot90(self.cubo2['R'])
         tempRi = copy.deepcopy(self.cubo2['U'][:, 2])
         self.cubo2['U'][:, 2] = self.cubo2['B'][:, 0][::-1]
@@ -138,7 +139,7 @@ class CuboRubik:
 
         return self.cubo2
 
-    def Bi_movimiento(self): #OK
+    def Bi_movimiento(self): #OK OK
         self.cubo2['B'] = np.rot90(self.cubo2['B'])
         tempBi = copy.deepcopy(self.cubo2['U'][0])
         self.cubo2['U'][0] = self.cubo2['L'][:, 0][::-1]
@@ -150,7 +151,7 @@ class CuboRubik:
     
     def Ld_movimiento(self): #OK
         self.cubo2['L'] = np.rot90(self.cubo2['L'], -1)
-        tempLd = copy.deepcopy(self.cubo2['U'][:, 0][::-1])
+        tempLd = copy.deepcopy(self.cubo2['U'][:, 0])
         self.cubo2['U'][:, 0] = np.flipud(self.cubo2['B'][:, 2])
         self.cubo2['B'][:, 2] = self.cubo2['D'][:, 0][::-1]
         self.cubo2['D'][:, 0] = self.cubo2['F'][:, 0]
@@ -178,7 +179,7 @@ class CuboRubik:
 
         return self.cubo2
 
-    def Di_movimiento(self): #REVISAR
+    def Di_movimiento(self): #OK
         print(self.cubo2['D'])
         self.cubo2['D'] = np.rot90(self.cubo2['D'])
         print(self.cubo2['D'])
@@ -256,102 +257,7 @@ print("Cubo Inicial")
 print(cubo)
 
 cubo = cubo_rubik.Dd_movimiento()
-cubo = cubo_rubik.Ld_movimiento()
-cubo = cubo_rubik.Bi_movimiento()
-cubo = cubo_rubik.Rd_movimiento()
-cubo = cubo_rubik.Ud_movimiento()
-cubo = cubo_rubik.Fi_movimiento()
 cubo = cubo_rubik.Li_movimiento()
-cubo = cubo_rubik.Fd_movimiento()
 cubo = cubo_rubik.Bi_movimiento()
-cubo = cubo_rubik.Di_movimiento()
-print("Di")
+print("Solucion")
 print(cubo)
-
-# cubo = cubo_rubik.Di_movimiento()
-
-
-# cubo = cubo_rubik.Li_movimiento()
-# print("Li")
-# print(cubo)
-
-
-
-# cubo = cubo_rubik.Bi_movimiento()
-# print("B prima")
-# print(cubo)
-# cubo = cubo_rubik.Ud_movimiento()
-# print("U")
-# print(cubo)
-# cubo = cubo_rubik.Rd_movimiento()
-# print("R")
-# print(cubo)
-
-
-# cubo = cubo_rubik.Fi_movimiento()
-# print("Cubo con Fi Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Rd_movimiento()
-# print("Cubo con Rd Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Ri_movimiento()
-# print("Cubo con Ri Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Ud_movimiento()
-# print("Cubo con Ud Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Ui_movimiento()
-# print("Cubo con Ui Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Bd_movimiento()
-# print("Cubo con Bd Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Bi_movimiento()
-# print("Cubo con Bi Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Ld_movimiento()
-# print("Cubo con Ld Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Li_movimiento()
-# print("Cubo con Li Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Dd_movimiento()
-# print("Cubo con Dd Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Di_movimiento()
-# print("Cubo con Di Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Xd_movimiento()
-# print("Cubo con Xd Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Xi_movimiento()
-# print("Cubo con Xi Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Yd_movimiento()
-# print("Cubo con Yd Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Yi_movimiento()
-# print("Cubo con Yi Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Zd_movimiento()
-# print("Cubo con Zd Movimiento")
-# print(cubo)
-
-# cubo = cubo_rubik.Zi_movimiento()
-# print("Cubo con Zi Movimiento")
-# print(cubo)
